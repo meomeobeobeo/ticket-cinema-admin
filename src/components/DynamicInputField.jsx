@@ -2,8 +2,8 @@ import { Button, Input, Space } from "antd";
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 
-const DynamicInputField = () => {
-  const [inputList, setInputList] = useState([""]);
+const DynamicInputField = ({inputList , setInputList}) => {
+//   const [inputList, setInputList] = useState([""]);
 
   const handleAddField = () => {
     setInputList([...inputList, ""]);
