@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #04192e;
+  --secondary: #03213b;
+  --third : #CCA944;
+}
+
+body {
+  background-color: var(--primary);
+  
+}
+#root {
+  width: 100%;
+  margin: auto;
+  
+}
+.primaryBtn {
+  
+  @apply font-bold w-full flex justify-center items-center gap-2 py-4 bg-[#111] rounded-lg cursor-pointer
+  
+}
+.primaryBtn:hover{
+ opacity: 0.5;
+}
+
+
+.secondaryBtn {
+  @apply font-bold w-full flex justify-center items-center gap-2 py-4 bg-[var(--third)] rounded-lg text-[var(--primary)] cursor-pointer
+}
+.secondaryBtn:hover{
+  opacity: 0.5;
+}
