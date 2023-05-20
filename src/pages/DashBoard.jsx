@@ -1,8 +1,11 @@
 import React from 'react'
+import RenderForm from '../components/RenderForm'
 
 const DashBoard = () => {
   return (
-    <div>DashBoard</div>
+    <div className='w-full'>
+      <RenderForm/>
+    </div>
   )
 }
 

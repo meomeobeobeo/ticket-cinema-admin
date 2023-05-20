@@ -9,7 +9,7 @@ import {
 } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import { Route, Routes } from "react-router-dom";
-import FilmInformation from "../pages/FilmInformation";
+import FilmInformation from "../pages/FilmInformation/FilmInformation";
 import FilmManager from "../pages/FilmManager";
 import Tickets from "../pages/Tickets";
 import Bill from "../pages/Bill";

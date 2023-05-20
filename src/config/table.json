@@ -1,0 +1,30 @@
+{
+    "test":{
+        "column" :[
+            {
+                "name":"Name",
+                "field":"name"
+    
+            },
+            {
+                "name":"Age",
+                "field":"age"
+    
+            },
+            {
+                "name":"Address",
+                "field":"address"
+    
+            },
+            {
+                "name":"Tags",
+                "field":"tags"
+    
+            }
+        ],
+        "apiName":{
+            "getAll":"getFilmInformation"
+        
+        }
+    }
+}

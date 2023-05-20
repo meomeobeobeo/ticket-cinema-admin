@@ -1,21 +1,17 @@
-import { Button, DatePicker, Input, Select } from "antd";
 import React from "react";
+import { Button, DatePicker, Input, Select } from "antd";
 
 import { Modal, Upload } from "antd";
 import { useState } from "react";
 import axios from "axios";
-import DynamicInputField from "../components/DynamicInputField";
+import DynamicInputField from "../../components/Widget/DynamicInputField";
 import TextArea from "antd/es/input/TextArea";
-import Divider from "../components/Divider";
-import UploadImage from "../components/UploadImage";
-const getBase64 = (file) =>
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
-const FilmInformation = () => {
+import Divider from "../../components/Divider";
+import UploadImage from "../../components/Widget/UploadImage";
+import { createFilmInformation } from "../../api/request";
+import { toast } from "react-toastify";
+
+const TabCreateFilmInfor = () => {
   const [name, setName] = useState("");
   const [imgBanner, setImgbanner] = useState("");
   const [duration, setDuration] = useState({
@@ -41,7 +37,29 @@ const FilmInformation = () => {
     description: description,
   };
 
-  console.log(formData);
+  
+  const handleCreateFilmInfor = async () => {
+    try {
+      toast.promise(createFilmInformation({ formData: formData }), {
+        pending: "Pendding",
+        success: "Create success 👌",
+        error: "Have some error 🤯",
+      });
+      setName("");
+      setActors([]);
+      setAuthor("");
+      setDescription("");
+      setDescription("");
+      setLanguage("vietnamese");
+      setRated("");
+      setStartTime("");
+      setImgbanner("");
+
+      console.log(req);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div className="w-full gap-10 flex flex-row flex-wrap">
@@ -184,8 +202,11 @@ const FilmInformation = () => {
 
         <Divider />
         <div className="flex flex-row justify-between items-center">
-          <div className="bg-blue-400 py-3 px-4 text-center flex justify-center items-center font-semibold text-slate-100 hover:text-slate-100 hover:bg-blue-500 rounded-xl cursor-pointer">
-            Save film information.
+          <div
+            onClick={handleCreateFilmInfor}
+            className="bg-blue-400 py-3 px-4 text-center flex justify-center items-center font-semibold text-slate-100 hover:text-slate-100 hover:bg-blue-500 rounded-xl cursor-pointer"
+          >
+            Create film information.
           </div>
         </div>
       </div>
@@ -193,4 +214,4 @@ const FilmInformation = () => {
   );
 };
 
-export default FilmInformation;
+export default TabCreateFilmInfor;

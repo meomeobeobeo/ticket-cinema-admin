@@ -55,7 +55,7 @@ const TheSider = () => {
       <div
        className="w-full flex justify-center items-center h-32 font-semibold text-lg text-slate-100"
       >
-        M-CINEMA
+        M-ADMIN
       </div>
       <Menu
         theme="dark"

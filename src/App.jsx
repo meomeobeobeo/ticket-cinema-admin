@@ -10,7 +10,10 @@ import { Breadcrumb, Layout, Menu, theme } from "antd";
 import { useState } from "react";
 import TheSider from "./layout/TheSider";
 import TheContent from "./layout/TheContent";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 const { Header, Content, Footer, Sider } = Layout;
+
 function getItem(label, key, icon, children) {
   return {
     key,
@@ -47,6 +50,7 @@ function App() {
     >
       <TheSider/>
       <TheContent/>
+      <ToastContainer />
     </Layout>
   );
 }
