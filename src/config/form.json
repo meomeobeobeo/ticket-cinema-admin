@@ -1,71 +1,99 @@
 {
-  "filmInformations": [
-    {
-      "label": "Name",
-      "field":"name",
-      "type": "input",
-      "widget": "Input",
-      "placeholder": "Enter name"
-    },
-    {
-      "label": "Upload imgBanner",
-      "field":"imgBanner",
-      "type": "upload",
-      "widget": "UploadImage",
-      "placeholder": ""
-    },
-    {
-      "label": "Film duration",
-      "field":"duration",
-      "type": "input",
-      "widget": "DurationTime",
-      "placeholder": ""
-    },
-    {
-      "label": "Actors",
-      "field":"actors",
-      "type": "DynamicInputField",
-      "placeholder": "enter new actors name"
-    },
-    {
-      "label": "Start time",
-      "field":"startTime",
-      "type": "dateSelect",
-      "widget": "DateSelect",
-      "placeholder": ""
-    },
-    {
-      "label": "Language",
-      "field":"language",
-      "type": "select",
-      "widget": "Select",
-      "placeholder": "Enter name",
-      "defaultOptions": [
+  "filmInformations": {
+    "schema":[
         {
-          "value": "english",
-          "label": "English"
+          "label": "Name",
+          "field":"name",
+          "type": "input",
+          "widget": "Input",
+          "placeholder": "Enter name",
+          "dataType":"string"
+        },
+    
+        {
+          "label": "Upload imgBanner",
+          "field":"imgBanner",
+          "type": "upload",
+          "widget": "UploadImage",
+          "placeholder": "",
+          "dataType":"string"
+    
         },
         {
-          "value": "vietnamese",
-          "label": "Vietnamese"
-        }
-      ]
-    },
-    {
-      "label": "Rated",
-      "field":"rated",
-      "type": "input",
-      "placeholder": "Enter rated",
-      "widget":"Input"
-    },
-    {
-      "label": "Description",
-      "field":"description",
-      "type": "textarea",
-      "widget":"TextArea",
-      "placeholder": "Enter description" 
-    }
+          "label": "Film duration",
+          "field":"duration",
+          "type": "time",
+          "widget": "DurationTime",
+          "placeholder": "",
+          "dataType":"json"
     
-  ]
+        },
+        {
+          "label": "Author",
+          "field":"author",
+          "type": "input",
+          "widget": "Input",
+          "placeholder": "Enter author name",
+          "dataType":"string"
+        },
+        {
+          "label": "Actors",
+          "field":"actors",
+          "type": "DynamicInputField",
+          "widget":"DynamicInputField",
+          "placeholder": "enter new actors name",
+          "dataType":"array"
+    
+        },
+        {
+          "label": "Start time",
+          "field":"startTime",
+          "type": "dateSelect",
+          "widget": "DateSelect",
+          "placeholder": "",
+          "dataType":"string"
+          
+        },
+        {
+          "label": "Language",
+          "dataType":"string",
+          "field":"language",
+          "type": "select",
+          "widget": "Select",
+          "placeholder": "Enter name",
+          "defaultOptions": [
+            {
+              "value": "english",
+              "label": "English"
+            },
+            {
+              "value": "vietnamese",
+              "label": "Vietnamese"
+            }
+          ]
+        },
+        {
+          "label": "Rated",
+          "dataType":"string",
+          "field":"rated",
+          "type": "input",
+          "placeholder": "Enter rated",
+          "widget":"Input"
+        },
+        {
+          "label": "Description",
+          "dataType":"string",
+          "field":"description",
+          "type": "textarea",
+          "widget":"TextArea",
+          "placeholder": "Enter description" 
+        }
+        
+      ],
+      "api":{
+        "create":"createFilmInformation",
+        "update":""
+      }
+  }
 
 }

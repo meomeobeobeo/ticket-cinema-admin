@@ -1,9 +1,18 @@
-import React from 'react'
+import { DatePicker } from "antd";
+import React from "react";
 
-const DateSelect = () => {
+const DateSelect = (props) => {
+  const {onChange} = props
+
+
+
   return (
-    <div>DateSelect</div>
-  )
-}
+    <DatePicker
+      onChange={(date, dateString) => {
+        onChange(dateString)
+      }}
+    />
+  );
+};
 
-export default DateSelect
+export default DateSelect;

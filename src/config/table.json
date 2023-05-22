@@ -1,29 +1,60 @@
 {
     "test":{
-        "column" :[
+        "columns" :[
             {
-                "name":"Name",
-                "field":"name"
-    
+                "label" : "Name",
+                "field" : "name" ,
+                "type" : "string"
             },
             {
-                "name":"Age",
-                "field":"age"
-    
+                "label" : "Duration",
+                "field" : "duration" ,
+                "type" : "time"
+
             },
             {
-                "name":"Address",
-                "field":"address"
-    
+                "label" : "Author",
+                "field" : "author" ,
+                "type" : "string"
+
             },
             {
-                "name":"Tags",
-                "field":"tags"
-    
+                "label" : "Img Banner URL",
+                "field" : "imgBanner",
+                "type" : "string"
+
+            },
+            {
+                "label" : "Actors",
+                "field" : "actors", 
+                "type" : "array"
+            },
+            {
+                "label" : "Name",
+                "field" : "name" ,
+                "type" : "string"
+            },
+            {
+                "label" : "startTime",
+                "field" : "Start Time" ,
+                "type" : "dateTime"
+            },
+            {
+                "label" : "Language",
+                "field" : "language" ,
+                "type" : "string"
+            },
+            {
+                "label" : "Rated",
+                "field" : "rated" ,
+                "type" : "string"
             }
         ],
         "apiName":{
-            "getAll":"getFilmInformation"
+            "getAll":"getFilmInformation",
+            "getDetails":"",
+            "delete":"",
+            "update":""
         
         }
     }
