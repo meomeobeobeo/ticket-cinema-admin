@@ -3,7 +3,7 @@ import RenderForm from '../components/RenderForm'
 import ApexChart from '../components/ApexChart'
 import DonutChart from '../components/DonutChart'
 import FORMS from '../config/form.json'
-
+import { SelectSearch } from '../components/Widget'
 const DashBoard = () => {
  
   
@@ -14,6 +14,7 @@ const DashBoard = () => {
       <div className='w-[500px] mt-10'>
         <DonutChart/>
       </div>
+      <SelectSearch />
     </div>
   )
 }

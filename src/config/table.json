@@ -1,5 +1,6 @@
 {
     "test":{
+
         "columns" :[
             {
                 "label" : "Name",
@@ -48,6 +49,11 @@
                 "label" : "Rated",
                 "field" : "rated" ,
                 "type" : "string"
+            },
+            {
+                "label" : "Start Time",
+                "field" : "startTime" ,
+                "type" : "string"
             }
         ],
         "apiName":{
@@ -56,6 +62,7 @@
             "delete":"",
             "update":""
         
-        }
+        },
+        "formFormatName" : "filmInformations"
     }
 }

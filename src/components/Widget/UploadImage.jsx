@@ -27,7 +27,6 @@ const UploadImage = ({imgLink , setImgLink,count }) => {
     );
   };
   const handleChange = ({ fileList: newFileList }) => {
-    console.log(fileList);
     setFileList(newFileList);
   };
   const uploadButton = (
@@ -54,7 +53,6 @@ const UploadImage = ({imgLink , setImgLink,count }) => {
               "http://localhost:1337/UploadImage",
               formData
             );
-            console.log(response);
             setImgLink(response?.data)
             options.onSuccess(response.data, options.file);
           } catch (error) {

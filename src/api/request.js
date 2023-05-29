@@ -13,4 +13,7 @@ export const createFilmInformation = ({formData}) =>{
 export const getFilmInformation = () =>{
     return API.get('/blue/films') 
 }
+export const createNewDocFilmMamager = ({formData}) =>{
+    return API.post('/blue/filmManager', formData)
+}
 

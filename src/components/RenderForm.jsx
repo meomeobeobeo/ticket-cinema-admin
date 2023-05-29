@@ -2,29 +2,32 @@ import React, { useState } from "react";
 import { Col, Input, Row, Select, Typography } from "antd";
 import Divider from "./Divider";
 import * as Widget from "../components/Widget";
-import * as api from '../api/request'
+import * as api from "../api/request";
 import { toast } from "react-toastify";
 
-const RenderForm = ({ formFormat, defaultData, mode }) => {
-  const [formData, setFormData] = useState(defaultData || {});
+const RenderForm = ({ formFormat, defaultData = {}, mode }) => {
+  console.log(defaultData);
+  const [formData, setFormData] = useState(defaultData);
   console.log(formData);
 
   const handleInputChange = (field, value) => {
     setFormData((prevFormData) => ({ ...prevFormData, [field]: value }));
   };
-  const handleCreateFilmInfor =  async () => {
+  const handleCreateFilmInfor = async () => {
     try {
-      toast.promise(api.createFilmInformation({ formData: formData }), {
+      toast.promise(api[formFormat.api.create]({ formData: formData }), {
         pending: "Pendding",
         success: "Create success 👌",
         error: "Have some error 🤯",
       });
-      setFormData({})
-      // console.log(req);
+      
     } catch (error) {
       console.error(error);
     }
   };
+  if (!formFormat.schema) {
+    return <Typography className="text-red-400">Form is empty.</Typography>;
+  }
 
   return (
     <div className="w-full">
@@ -51,6 +54,18 @@ const RenderForm = ({ formFormat, defaultData, mode }) => {
                   value={formData[form.field] || ""}
                   onChange={(value) => handleInputChange(form.field, value)}
                   options={form.defaultOptions}
+                />
+                <Divider />
+              </Col>
+            );
+          } else if (form.type === "selectSearch") {
+            return (
+              <Col key={index} className="flex flex-col gap-2 " span={12}>
+                <Typography className="font-semibold">{form.label}</Typography>
+                <Widget.SelectSearch
+                  value={formData[form.field] || ""}
+                  onChange={(value) => handleInputChange(form.field, value.value)}
+                  apiNameSetData={form.apiNameSetData}
                 />
                 <Divider />
               </Col>
@@ -113,12 +128,7 @@ const RenderForm = ({ formFormat, defaultData, mode }) => {
               <Col key={index} className="flex flex-col gap-2 " span={12}>
                 <Typography className="font-semibold">{form.label}</Typography>
                 <Widget.DurationTime
-                  value={
-                    formData[formData.field] || {
-                      hours: "",
-                      minutes: "",
-                    }
-                  }
+                  value={formData[form.field] || ""}
                   onChange={(value) => {
                     handleInputChange(form.field, value);
                   }}
@@ -136,23 +146,25 @@ const RenderForm = ({ formFormat, defaultData, mode }) => {
       {mode === "create" && (
         <div className="flex flex-row justify-between items-center mt-6">
           <div
-            onClick={() => {handleCreateFilmInfor()}}
+            onClick={() => {
+              handleCreateFilmInfor();
+            }}
             className="bg-blue-400 py-3 px-4 text-center flex justify-center items-center font-semibold text-slate-100 hover:text-slate-100 hover:bg-blue-500 rounded-xl cursor-pointer"
           >
             Create film information.
           </div>
         </div>
       )}
-      {
-        mode === 'update' && <div className="flex flex-row justify-between items-center mt-6">
-        <div
-          onClick={()=>{}}
-          className="bg-blue-400 py-3 px-4 text-center flex justify-center items-center font-semibold text-slate-100 hover:text-slate-100 hover:bg-blue-500 rounded-xl cursor-pointer"
-        >
-          Update film information.
+      {mode === "update" && (
+        <div className="flex flex-row justify-between items-center mt-6">
+          <div
+            onClick={() => {}}
+            className="bg-blue-400 py-3 px-4 text-center flex justify-center items-center font-semibold text-slate-100 hover:text-slate-100 hover:bg-blue-500 rounded-xl cursor-pointer"
+          >
+            Update film information.
+          </div>
         </div>
-      </div>
-      }
+      )}
     </div>
   );
 };

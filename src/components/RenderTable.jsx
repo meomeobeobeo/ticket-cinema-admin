@@ -4,17 +4,22 @@ import moment from "moment";
 import { RxUpdate } from "react-icons/rx";
 import { BsTrash } from "react-icons/bs";
 import * as api from "../api/request";
+import FORMS from "../config/form.json";
+import DynamicModal from "./DynamicModal";
 const RenderTable = ({ tableFormat }) => {
-  // table format is fomat to render table
+  // table format is fomat to render tablen
   const [data, setData] = useState([]);
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [dataModal, setDataModal] = useState({});
+  const formFormat = FORMS[`${tableFormat?.formFormatName}`];
+
   useEffect(() => {
     let res = api[tableFormat?.apiName?.getAll]();
     res.then((data) => {
       let dataRes = data.data || [];
 
       const mappedData = dataRes.map((item) => {
-        const mappedItem = { key: item?.id };
+        const mappedItem = { key: item?.id , id : item.id };
         tableFormat.columns.forEach((colFomat) => {
           const { label, field, type } = colFomat;
 
@@ -61,28 +66,42 @@ const RenderTable = ({ tableFormat }) => {
   columns.push({
     title: "Actions",
     key: "actions",
-    render: (text) => (
-      <div className="flex flex-row gap-2">
-        <div onClick={()=>{
-            console.log(text.key)
-            // show modal update
-        }} className="p-1 rounded-full hover:bg-slate-800 hover:text-[#fff] cursor-pointer">
-          <RxUpdate />
-        </div>
-        <div onClick={()=>{
-            console.log(text.key)
-            // show modal confirm delete
-        }} className="p-1 rounded-full hover:bg-slate-800 hover:text-[#fff] cursor-pointer">
-          <BsTrash />
-        </div>
-      </div>
-    ),
-  });
+    render: (text, record, hello) => {
+      return (
+        <div className="flex flex-row gap-2">
+          <div
+            onClick={() => {
+              setDataModal(text);
 
+              setIsModalOpen(true);
+              // show modal update
+            }}
+            className="p-1 rounded-full hover:bg-slate-800 hover:text-[#fff] cursor-pointer"
+          >
+            <RxUpdate />
+          </div>
+          <div
+            onClick={() => {
+              // show modal confirm delete
+            }}
+            className="p-1 rounded-full hover:bg-slate-800 hover:text-[#fff] cursor-pointer"
+          >
+            <BsTrash />
+          </div>
+        </div>
+      );
+    },
+  });
 
   return (
     <div className="w-full">
       <Table columns={columns} dataSource={data} />
+      <DynamicModal
+        dataShow={dataModal}
+        formFomat={formFormat}
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
     </div>
   );
 };

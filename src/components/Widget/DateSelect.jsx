@@ -1,8 +1,8 @@
 import { DatePicker } from "antd";
 import React from "react";
 
-const DateSelect = (props) => {
-  const {onChange} = props
+const DateSelect = ({value , onChange}) => {
+console.log(value)
 
 
 

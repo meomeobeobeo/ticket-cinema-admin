@@ -10,7 +10,7 @@ import {
 import { Breadcrumb, Layout, Menu, theme } from "antd";
 import { Route, Routes } from "react-router-dom";
 import FilmInformation from "../pages/FilmInformation/FilmInformation";
-import FilmManager from "../pages/FilmManager";
+import FilmManager from "../pages/FilmManager/FilmManager";
 import Tickets from "../pages/Tickets";
 import Bill from "../pages/Bill";
 import FeedBack from "../pages/FeedBack";

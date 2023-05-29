@@ -1,15 +1,19 @@
 import { Input } from "antd";
 import React, { useEffect, useState } from "react";
 
-const DurationTime = (props) => {
-  const { value, onChange } = props;
-  const [duration, setDuration] = useState(value || {
-    hours : '',
-    minutes : ''
-  });
+const DurationTime = ({
+  value ,
+  onChange,
+}) => {
+
+
+
+ 
+  const [duration, setDuration] = useState(
+    value 
+  );
   useEffect(() => {
     onChange(duration);
-    
   }, [duration]);
   return (
     <div className="flex w-full flex-row gap-8">

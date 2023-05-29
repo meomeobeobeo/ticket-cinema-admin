@@ -25,7 +25,7 @@ const FilmInformation = () => {
           <TabCreateFilmInfor/>
         </TabPane>
         <TabPane tab="Table film information" key="table-infor">
-          <RenderTable tableFormat={TABLES.test} />
+          <RenderTable  tableFormat={TABLES.test} />
         </TabPane>
         
       </Tabs>
