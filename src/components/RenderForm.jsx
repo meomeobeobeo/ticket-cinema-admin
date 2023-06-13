@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Input, Row, Select, Typography } from "antd";
 import Divider from "./Divider";
 import * as Widget from "../components/Widget";
 import * as api from "../api/request";
 import { toast } from "react-toastify";
 
-const RenderForm = ({ formFormat, defaultData = {}, mode }) => {
-  console.log(defaultData);
-  const [formData, setFormData] = useState(defaultData);
-  console.log(formData);
+const RenderForm = ({ formFormat, defaultData, mode , updateInfor }) => {
+  console.log(updateInfor)
+
+
+  
+  const [formData, setFormData] = useState({});
+  console.log(formData)
+  
+  useEffect(()=>{
+   if(defaultData){
+    setFormData(defaultData)
+   }
+   else{
+    setFormData({})
+   }
+
+  },[defaultData])
+  
 
   const handleInputChange = (field, value) => {
     setFormData((prevFormData) => ({ ...prevFormData, [field]: value }));
@@ -158,7 +172,15 @@ const RenderForm = ({ formFormat, defaultData = {}, mode }) => {
       {mode === "update" && (
         <div className="flex flex-row justify-between items-center mt-6">
           <div
-            onClick={() => {}}
+            onClick={() => {
+              if(updateInfor){
+                updateInfor({filmId : formData.id , formData : formData})
+              }
+              else{
+                console.error("Not have fuction matching")
+              }
+
+            }}
             className="bg-blue-400 py-3 px-4 text-center flex justify-center items-center font-semibold text-slate-100 hover:text-slate-100 hover:bg-blue-500 rounded-xl cursor-pointer"
           >
             Update film information.

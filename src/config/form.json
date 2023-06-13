@@ -254,7 +254,7 @@
       ],
       "api":{
         "create":"createNewDocFilmMamager",
-        "update":""
+        "update":"updateFilmInformation"
       }
   }
 

@@ -2,11 +2,13 @@ import { Button, Modal } from "antd";
 import React from "react";
 import RenderForm from "./RenderForm";
 
-const DynamicModal = ({ dataShow, formFomat, isModalOpen, setIsModalOpen }) => {
+const DynamicModal = ({ dataShow,updateInfor, formFomat, isModalOpen, setIsModalOpen }) => {
+
  
-  const handleUpdate = async () => {
+  const handleUpdate = async ({filmId , formData}) => {
     // Handle update action
     // ...
+   
   };
 
   const handleCancel = () => {
@@ -31,7 +33,7 @@ const DynamicModal = ({ dataShow, formFomat, isModalOpen, setIsModalOpen }) => {
         </Button>,
         <Button
           key="update"
-          className="bg-blue-500"
+          className="bg-blue-500 hidden"
           type="primary"
           onClick={handleUpdate}
         >
@@ -40,7 +42,7 @@ const DynamicModal = ({ dataShow, formFomat, isModalOpen, setIsModalOpen }) => {
       ]}
       className="customModal" // Apply the custom style to adjust opacity
     >
-      <RenderForm defaultData={dataShow} formFormat={formFomat} />
+      <RenderForm updateInfor = {updateInfor} mode={'update'} defaultData={dataShow} formFormat={formFomat} />
       {/* */}
     </Modal>
   );

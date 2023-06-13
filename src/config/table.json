@@ -1,5 +1,46 @@
 {
-    "test":{
+    "filmManagers":{
+
+        "columns" :[
+            {
+                "label" : "Film ID",
+                "field" : "filmId" ,
+                "type" : "string"
+            },
+            {
+                "label" : "watch Time",
+                "field" : "watchTime" ,
+                "type" : "string"
+
+            },
+            {
+                "label" : "watchDate",
+                "field" : "watchDate" ,
+                "type" : "dateTime"
+
+            },
+            {
+                "label" : "Theater address",
+                "field" : "theaterAddress" ,
+                "type" : "string"
+            },
+            {
+                "label" : "Theater number",
+                "field" : "theaterNumber" ,
+                "type" : "string"
+            }
+            
+        ],
+        "apiName":{
+            "getAll":"getFilmManagerInformation",
+            "getDetails":"",
+            "delete":"deleteFilmManagerInformation",
+            "update":"updateFilmManagerInformation"
+        
+        },
+        "formFormatName" : "filmManager"
+    },
+    "filmInformation":{
 
         "columns" :[
             {
@@ -37,7 +78,7 @@
             },
             {
                 "label" : "startTime",
-                "field" : "Start Time" ,
+                "field" : "startTime" ,
                 "type" : "dateTime"
             },
             {
@@ -54,13 +95,18 @@
                 "label" : "Start Time",
                 "field" : "startTime" ,
                 "type" : "string"
+            },
+            {
+                "label" : "Description",
+                "field" : "description" ,
+                "type" : "string"
             }
         ],
         "apiName":{
             "getAll":"getFilmInformation",
             "getDetails":"",
-            "delete":"",
-            "update":""
+            "delete":"deleteFilmInformation",
+            "update":"updateFilmInformation"
         
         },
         "formFormatName" : "filmInformations"

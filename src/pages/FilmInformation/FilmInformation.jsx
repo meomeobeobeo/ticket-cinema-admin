@@ -2,19 +2,13 @@ import TabPane from "antd/es/tabs/TabPane";
 import TabCreateFilmInfor from "./TabCreateFilmInfor";
 import { useEffect, useState } from "react";
 import { Tabs } from "antd";
-import TableInformation from "../../components/TableInformation";
-import { getFilmInformation } from "../../api/request";
+
 import RenderTable from "../../components/RenderTable";
 import TABLES from "../../config/table.json"
 
 const FilmInformation = () => {
   const [activeTab, setActiveTab] = useState("create-infor");
-  // useEffect(()=>{
-  //   let rs = getFilmInformation()
-  //   rs.then((data)=>{
-  //     console.log(data)
-  //   })
-  // },[])
+  
   const handleTabChange = (key) => {
     setActiveTab(key);
   };
@@ -25,7 +19,7 @@ const FilmInformation = () => {
           <TabCreateFilmInfor/>
         </TabPane>
         <TabPane tab="Table film information" key="table-infor">
-          <RenderTable  tableFormat={TABLES.test} />
+          <RenderTable  tableFormat={TABLES.filmInformation} />
         </TabPane>
         
       </Tabs>

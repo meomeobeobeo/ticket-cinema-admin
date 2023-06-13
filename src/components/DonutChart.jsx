@@ -2,7 +2,7 @@ import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 const DonutChart = () => {
-  const series = [44, 55, 41, 17, 15];
+  const series = [400 , 600 , 300];
 
   const options = {
     chart: {
