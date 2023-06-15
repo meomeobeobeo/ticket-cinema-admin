@@ -110,5 +110,29 @@
         
         },
         "formFormatName" : "filmInformations"
+    },
+    "foodInformation":{
+
+        "columns" :[
+            {
+                "label" : "Name Food",
+                "field" : "name" ,
+                "type" : "string"
+            },
+            {
+                "label" : "Cost",
+                "field" : "cost" ,
+                "type" : "string"
+            }
+           
+        ],
+        "apiName":{
+            "getAll":"getFoodInformation",
+            "getDetails":"",
+            "delete":"deleteFoodInformation",
+            "update":"updateFoodInformation"
+        
+        },
+        "formFormatName" : "foodInformations"
     }
 }

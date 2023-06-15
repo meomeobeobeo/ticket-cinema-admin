@@ -6,12 +6,13 @@ import * as api from "../api/request";
 import { toast } from "react-toastify";
 
 const RenderForm = ({ formFormat, defaultData, mode , updateInfor }) => {
-  console.log(updateInfor)
 
 
   
   const [formData, setFormData] = useState({});
-  console.log(formData)
+
+
+ 
   
   useEffect(()=>{
    if(defaultData){
@@ -165,7 +166,7 @@ const RenderForm = ({ formFormat, defaultData, mode , updateInfor }) => {
             }}
             className="bg-blue-400 py-3 px-4 text-center flex justify-center items-center font-semibold text-slate-100 hover:text-slate-100 hover:bg-blue-500 rounded-xl cursor-pointer"
           >
-            Create film information.
+            Create data
           </div>
         </div>
       )}

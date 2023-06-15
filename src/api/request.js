@@ -29,3 +29,20 @@ export const deleteFilmManagerInformation = ({ id }) => {
 export const updateFilmManagerInformation = ({ id, formData }) => {
   return API.patch(`/blue/filmManager/${id}`, formData);
 };
+
+
+
+export const createFoodInformation = ({ formData }) => {
+  return API.post("/blue/food", formData);
+}
+export const getFoodInformation = ()=>{
+  return API.get("/blue/food")
+}
+export const deleteFoodInformation = ({ id }) => {
+  return API.delete(`/blue/food/${id}`);
+};
+export const updateFoodInformation = ({ id, formData }) => {
+  return API.patch(`/blue/food/${id}`, formData);
+};
+
+

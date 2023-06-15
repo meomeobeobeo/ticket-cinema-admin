@@ -17,11 +17,18 @@ import FeedBack from "../pages/FeedBack";
 import DashBoard from "../pages/DashBoard";
 import Food from "../pages/Food";
 const { Header, Content, Footer, Sider } = Layout;
+import { useLocation } from 'react-router-dom';
+
 
 const TheContent = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  const location = useLocation();
+  const currentPath = location.pathname.substring(1);
+  
+
+
   return (
     <Layout className="site-layout">
       <Header
@@ -40,8 +47,8 @@ const TheContent = () => {
             margin: "16px 0",
           }}
         >
-          <Breadcrumb.Item>User</Breadcrumb.Item>
-          <Breadcrumb.Item>Bill</Breadcrumb.Item>
+          <Breadcrumb.Item>Admin</Breadcrumb.Item>
+          <Breadcrumb.Item>{currentPath}</Breadcrumb.Item>
         </Breadcrumb>
         <div
           style={{

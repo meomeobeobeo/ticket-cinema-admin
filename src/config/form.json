@@ -256,6 +256,31 @@
         "create":"createNewDocFilmMamager",
         "update":"updateFilmInformation"
       }
+  },
+  "foodInformations": {
+    "schema":[
+        {
+          "label": "Name",
+          "field":"name",
+          "type": "input",
+          "widget": "Input",
+          "placeholder": "Enter name food",
+          "dataType":"string"
+        },
+        {
+          "label": "Cost of food only number",
+          "field":"cost",
+          "type": "input",
+          "widget": "Input",
+          "placeholder": "Enter cost food as number",
+          "dataType":"string"
+        }
+    
+      ],
+      "api":{
+        "create":"createFoodInformation",
+        "update":""
+      }
   }
 
 }

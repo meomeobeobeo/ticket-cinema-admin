@@ -65,7 +65,7 @@ const RenderTable = ({ tableFormat }) => {
         dataIndex: value?.field,
         key: index,
         render: (text) => (
-          <Tag color="success">{`${text?.hours} giờ  ${text?.minutes} phút`}</Tag>
+          <Tag  color="success">{`${text?.hours} giờ  ${text?.minutes} phút`}</Tag>
         ),
       };
     } else if (value.type === "dateTime") {
@@ -93,8 +93,8 @@ const RenderTable = ({ tableFormat }) => {
         dataIndex: value?.field,
         key: index,
         render: (text) => {
-          let components = text.map((value) => {
-            return <Tag color="cyan-inverse">{value}</Tag>;
+          let components = text.map((value , index) => {
+            return <Tag key={index} color="cyan-inverse">{value}</Tag>;
           });
 
           return <div className="flex flex-col gap-1">{components}</div>;

@@ -4,6 +4,9 @@ import RenderForm from "./RenderForm";
 
 const DynamicModal = ({ dataShow,updateInfor, formFomat, isModalOpen, setIsModalOpen }) => {
 
+
+  
+
  
   const handleUpdate = async ({filmId , formData}) => {
     // Handle update action

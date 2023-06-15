@@ -7,10 +7,22 @@ const DynamicInputField = (props) => {
   // if(inputList || setInputList){
 
     const {onChange , value} = props
+    console.log(value)
 
 
   // }
-  const [inputList, setInputList] = useState(value || ['']);
+  const [inputList, setInputList] = useState( ['']);
+  useEffect(()=>{
+    if(value){
+      setInputList(value)
+    }
+    else{
+      setInputList([''])
+    }
+  },[])
+  
+
+  console.log(inputList)
 
   const handleAddField = () => {
     setInputList([...inputList, ""]);

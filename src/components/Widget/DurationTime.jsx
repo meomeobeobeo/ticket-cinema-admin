@@ -6,12 +6,17 @@ const DurationTime = ({
   onChange,
 }) => {
 
+ 
+
 
 
  
   const [duration, setDuration] = useState(
     value 
   );
+ 
+ 
+
   useEffect(() => {
     onChange(duration);
   }, [duration]);
@@ -19,7 +24,7 @@ const DurationTime = ({
     <div className="flex w-full flex-row gap-8">
       <div className="flex flex-row justify-center items-center gap-2">
         <Input
-          value={duration.hours}
+          value={value.hours}
           className="w-14"
           onChange={(e) => {
             setDuration({
@@ -32,7 +37,7 @@ const DurationTime = ({
       </div>
       <div className="flex flex-row justify-center items-center gap-2">
         <Input
-          value={duration.minutes}
+          value={value.minutes}
           className="w-14"
           onChange={(e) => {
             setDuration({
