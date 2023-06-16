@@ -2,28 +2,24 @@ import { Button, Input, Space } from "antd";
 import React, { useEffect, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 
-const DynamicInputField = (props) => {
+const DynamicInputField = ({onChange , value}) => {
   // const {inputList , setInputList} = props
   // if(inputList || setInputList){
 
-    const {onChange , value} = props
-    console.log(value)
+   
+  
 
 
   // }
-  const [inputList, setInputList] = useState( ['']);
+  const [inputList, setInputList] = useState(value);
+
+
+
   useEffect(()=>{
-    if(value){
-      setInputList(value)
-    }
-    else{
-      setInputList([''])
-    }
-  },[])
+    onChange(inputList)
+    
+  },[inputList])
   
-
-  console.log(inputList)
-
   const handleAddField = () => {
     setInputList([...inputList, ""]);
   };
@@ -39,14 +35,11 @@ const DynamicInputField = (props) => {
     list.splice(index, 1);
     setInputList(list);
   };
-  useEffect(()=>{
-    onChange(inputList)
-    
-  },[inputList])
+ 
   return (
     <div>
       <Space.Compact className="flex flex-col justify-center items-center ">
-        {inputList.map((value, index) => (
+        {value.map((value, index) => (
           <Input
             key={index}
             placeholder="Enter a value"
