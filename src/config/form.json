@@ -9,6 +9,14 @@
           "placeholder": "Enter name",
           "dataType":"string"
         },
+        {
+          "label": "Trailer",
+          "field":"trailer",
+          "type": "input",
+          "widget": "Input",
+          "placeholder": "Enter trailer url",
+          "dataType":"string"
+        },
     
         {
           "label": "Upload imgBanner",
@@ -100,7 +108,7 @@
         {
           "label": "Film choose",
           "dataType":"string",
-          "field":"filmId",
+          "field":"filmInfor",
           "type": "selectSearch",
           "widget": "SelectSearch",
           "placeholder": "Enter name",

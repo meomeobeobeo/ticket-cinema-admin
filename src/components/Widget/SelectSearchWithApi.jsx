@@ -17,7 +17,10 @@ export default function SelectSearchWithApi({ apiNameSetData, onChange }) {
         let result = data.data;
         result = result.map((value) => {
           return {
-            value: value.id,
+            value: {
+              id : value.id,
+              name : value.name
+            },
             label: value.name,
           };
         });

@@ -4,13 +4,13 @@
         "columns" :[
             {
                 "label" : "Film ID",
-                "field" : "filmId" ,
-                "type" : "string"
+                "field" : "filmInfor" ,
+                "type" : "object"   
             },
             {
                 "label" : "watch Time",
                 "field" : "watchTime" ,
-                "type" : "string"
+                "type" : "string"   
 
             },
             {
@@ -46,6 +46,11 @@
             {
                 "label" : "Name",
                 "field" : "name" ,
+                "type" : "string"
+            },
+            {
+                "label" : "Trailer",
+                "field" : "trailer" ,
                 "type" : "string"
             },
             {

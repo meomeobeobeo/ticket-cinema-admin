@@ -53,6 +53,7 @@ const RenderForm = ({ formFormat, defaultData, mode , updateInfor }) => {
               <Col key={index} className="flex flex-col gap-2 " span={12}>
                 <Typography className="font-semibold">{form.label}</Typography>
                 <Input
+                placeholder={form.placeholder || "please enter data"} 
                   value={formData[form.field] || ""}
                   onChange={(e) =>
                     handleInputChange(form.field, e.target.value)

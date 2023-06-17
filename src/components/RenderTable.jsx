@@ -101,11 +101,40 @@ const RenderTable = ({ tableFormat }) => {
         },
       };
     }
+    else if (value.type === "object") {
+
+
+      
+
+
+      return {
+        title: value?.label,
+        dataIndex: value?.field,
+        key: index,
+        render: (text) => {
+
+          const keyValuePairs = [];
+          for (let key in text) {
+            const value = text[key];
+            const pairString = `${key}: ${JSON.stringify(value)}`;
+            keyValuePairs.push(pairString);
+          }
+
+
+
+          let components = keyValuePairs.map((value , index) => {
+            return <Tag key={index} color="cyan">{value}</Tag>;
+          });
+
+          return <div className="flex flex-col gap-1">{components}</div>;
+        },
+      };
+    }
     return {
       title: value?.label,
       dataIndex: value?.field,
       key: index,
-      render: (text) => <Typography>{text}</Typography>,
+      render: (text) => <Typography className="max-h-24 overflow-y-scroll">{text}</Typography>,
     };
   });
   columns.push({
