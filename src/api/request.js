@@ -44,5 +44,11 @@ export const deleteFoodInformation = ({ id }) => {
 export const updateFoodInformation = ({ id, formData }) => {
   return API.patch(`/blue/food/${id}`, formData);
 };
+export const getDataForDashBoard = () => {
+  return API.post(`/dashBoard/getDataForDashBoard`);
+};
+export const getDataforTicketManager = () => {
+  return API.get(`/dashBoard/getDataforTicketManager`);
+};
 
 

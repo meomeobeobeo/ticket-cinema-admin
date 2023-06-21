@@ -35,7 +35,7 @@ const itemNavs = [
   ]),
   getItem('Food','/food',<IoFastFood/>),
   getItem('Tickets manager','/tickets',<BsFillTicketPerforatedFill/>),
-  getItem('Bill manager','/bills' , <FaMoneyBill/>),
+  // getItem('Bill manager','/bills' , <FaMoneyBill/>),
   getItem('FeedBack manager','/feedback', <FcFeedback/>)
 ]
 
