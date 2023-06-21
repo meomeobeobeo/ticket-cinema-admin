@@ -74,7 +74,7 @@ const RenderForm = ({ formFormat, defaultData, mode , updateInfor }) => {
                 <Divider />
               </Col>
             );
-          } else if (form.type === "selectSearch") {
+          } else if (form.type === "selectSearch") {  
             return (
               <Col key={index} className="flex flex-col gap-2 " span={12}>
                 <Typography className="font-semibold">{form.label}</Typography>
