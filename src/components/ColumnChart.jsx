@@ -3,7 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import millify from "millify";
 
 const ColumnChart = ({title , data}) => {
-    console.log(data)
+    
   const series = [
     {
       name: "VND",
